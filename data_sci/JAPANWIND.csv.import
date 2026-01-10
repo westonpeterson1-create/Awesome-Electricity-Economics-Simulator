@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c5wdwlo5ianjr"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/JAPANWIND.csv"
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dge6b1cawatlb"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/GERMANYWIND.csv"
+
+[params]
+
+compress=true
+delimiter=0

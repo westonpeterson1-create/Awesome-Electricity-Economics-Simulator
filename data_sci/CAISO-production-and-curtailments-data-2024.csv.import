@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://kq8qq3jocxr6"
+
+[deps]
+
+files=["res://data_sci/CAISO-production-and-curtailments-data-2024.Hour.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Interval.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Load.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Solar.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Wind.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Net Load.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Renewables.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Nuclear.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Large Hydro.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Imports.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Generation.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Thermal.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Load Less (Generation+Imports).translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.DEMAND.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.21,595.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.0.452296518724665.translation"]
+
+source_file="res://data_sci/CAISO-production-and-curtailments-data-2024.csv"
+dest_files=["res://data_sci/CAISO-production-and-curtailments-data-2024.Hour.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Interval.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Load.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Solar.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Wind.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Net Load.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Renewables.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Nuclear.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Large Hydro.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Imports.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Generation.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Thermal.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.Load Less (Generation+Imports).translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.DEMAND.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.21,595.translation", "res://data_sci/CAISO-production-and-curtailments-data-2024.0.452296518724665.translation"]
+
+[params]
+
+compress=true
+delimiter=0

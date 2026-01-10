@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bsrbj72p0dmfm"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/GERMANYSOLAR.csv"
+
+[params]
+
+compress=true
+delimiter=0

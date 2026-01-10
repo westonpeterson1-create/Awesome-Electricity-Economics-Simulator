@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cpjey7jo2rf1v"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/FLORIDASOLAR.csv"
+
+[params]
+
+compress=true
+delimiter=0

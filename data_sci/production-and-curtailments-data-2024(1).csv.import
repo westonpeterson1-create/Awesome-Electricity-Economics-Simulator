@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://3tuql6jdrbn"
+
+[deps]
+
+files=["res://data_sci/production-and-curtailments-data-2024(1).Hour.translation", "res://data_sci/production-and-curtailments-data-2024(1).Interval.translation", "res://data_sci/production-and-curtailments-data-2024(1).Load.translation", "res://data_sci/production-and-curtailments-data-2024(1).Solar.translation", "res://data_sci/production-and-curtailments-data-2024(1).Wind.translation", "res://data_sci/production-and-curtailments-data-2024(1).Net Load.translation", "res://data_sci/production-and-curtailments-data-2024(1).Renewables.translation", "res://data_sci/production-and-curtailments-data-2024(1).Nuclear.translation", "res://data_sci/production-and-curtailments-data-2024(1).Large Hydro.translation", "res://data_sci/production-and-curtailments-data-2024(1).Imports.translation", "res://data_sci/production-and-curtailments-data-2024(1).Generation.translation", "res://data_sci/production-and-curtailments-data-2024(1).Thermal.translation", "res://data_sci/production-and-curtailments-data-2024(1).Load Less (Generation+Imports).translation", "res://data_sci/production-and-curtailments-data-2024(1).311.53816659009.translation", "res://data_sci/production-and-curtailments-data-2024(1).8128.translation", "res://data_sci/production-and-curtailments-data-2024(1).0.0383290067163005.translation"]
+
+source_file="res://data_sci/production-and-curtailments-data-2024(1).csv"
+dest_files=["res://data_sci/production-and-curtailments-data-2024(1).Hour.translation", "res://data_sci/production-and-curtailments-data-2024(1).Interval.translation", "res://data_sci/production-and-curtailments-data-2024(1).Load.translation", "res://data_sci/production-and-curtailments-data-2024(1).Solar.translation", "res://data_sci/production-and-curtailments-data-2024(1).Wind.translation", "res://data_sci/production-and-curtailments-data-2024(1).Net Load.translation", "res://data_sci/production-and-curtailments-data-2024(1).Renewables.translation", "res://data_sci/production-and-curtailments-data-2024(1).Nuclear.translation", "res://data_sci/production-and-curtailments-data-2024(1).Large Hydro.translation", "res://data_sci/production-and-curtailments-data-2024(1).Imports.translation", "res://data_sci/production-and-curtailments-data-2024(1).Generation.translation", "res://data_sci/production-and-curtailments-data-2024(1).Thermal.translation", "res://data_sci/production-and-curtailments-data-2024(1).Load Less (Generation+Imports).translation", "res://data_sci/production-and-curtailments-data-2024(1).311.53816659009.translation", "res://data_sci/production-and-curtailments-data-2024(1).8128.translation", "res://data_sci/production-and-curtailments-data-2024(1).0.0383290067163005.translation"]
+
+[params]
+
+compress=true
+delimiter=0

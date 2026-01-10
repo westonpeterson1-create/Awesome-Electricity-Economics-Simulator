@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ckunvxss16bqp"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/CAISOWIND.csv"
+
+[params]
+
+compress=true
+delimiter=0

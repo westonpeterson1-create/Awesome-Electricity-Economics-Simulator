@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://da5kgtj0kr4nq"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/JAPANSOLAR.csv"
+
+[params]
+
+compress=true
+delimiter=0

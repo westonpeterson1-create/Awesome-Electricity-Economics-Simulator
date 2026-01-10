@@ -1,0 +1,188 @@
+[gd_scene load_steps=9 format=3 uid="uid://6sxodu2610o1"]
+
+[ext_resource type="Script" uid="uid://bxdfusspc0h8g" path="res://data_sci/Global.gd" id="1_clw3y"]
+[ext_resource type="Script" uid="uid://du5fq6ts33gsa" path="res://data_sci/node.gd" id="1_v851v"]
+[ext_resource type="Script" uid="uid://0m6u2swwajwc" path="res://data_sci/label.gd" id="3_220bk"]
+[ext_resource type="Script" uid="uid://6oep4c10ncyb" path="res://data_sci/label_2.gd" id="4_j5nvb"]
+[ext_resource type="Script" uid="uid://bmhnfk7moxitt" path="res://data_sci/label_3.gd" id="5_ew5ih"]
+[ext_resource type="Script" uid="uid://ce8dqxlgdqnxp" path="res://data_sci/label_4.gd" id="6_plj62"]
+[ext_resource type="Script" uid="uid://bo7o1gcnjpgxk" path="res://data_sci/label_5.gd" id="7_7u681"]
+[ext_resource type="Script" uid="uid://cnsjs0k6n037y" path="res://data_sci/label_6.gd" id="8_7i5po"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_clw3y")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_v851v")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 570.0
+offset_right = 1122.0
+offset_bottom = 631.0
+text = "START 40 YEAR EVALUATION"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 57.0
+offset_right = 206.0
+offset_bottom = 109.0
+text = "JAPAN"
+
+[node name="Button3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 133.0
+offset_right = 207.0
+offset_bottom = 187.0
+text = "GERMANY"
+
+[node name="Button4" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 207.0
+offset_right = 208.0
+offset_bottom = 261.0
+text = "CALIFORNIA"
+
+[node name="Button5" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 283.0
+offset_right = 208.0
+offset_bottom = 337.0
+text = "FLORIDA
+"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 438.0
+offset_right = 961.0
+offset_bottom = 461.0
+text = "LOCATION"
+script = ExtResource("3_220bk")
+
+[node name="Button6" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 58.0
+offset_right = 1131.0
+offset_bottom = 89.0
+text = "AMERICA: 2040"
+
+[node name="Button7" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 110.0
+offset_right = 1130.0
+offset_bottom = 141.0
+text = "AMERICA: 2040 (Solar revolution)"
+
+[node name="Button8" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 165.0
+offset_right = 1132.0
+offset_bottom = 196.0
+text = "AMERICA: 2025"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 464.0
+offset_right = 963.0
+offset_bottom = 487.0
+text = "COST DATA"
+script = ExtResource("4_j5nvb")
+
+[node name="HSlider" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 793.0
+offset_top = 496.0
+offset_right = 950.0
+offset_bottom = 512.0
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 517.0
+offset_right = 943.0
+offset_bottom = 540.0
+text = "INTEREST"
+script = ExtResource("5_ew5ih")
+
+[node name="HSlider2" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 398.0
+offset_right = 948.0
+offset_bottom = 414.0
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 793.0
+offset_top = 415.0
+offset_right = 959.0
+offset_bottom = 438.0
+text = "CARBON COST"
+script = ExtResource("6_plj62")
+
+[node name="Button9" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 571.0
+offset_right = 791.0
+offset_bottom = 633.0
+text = "START 80 YEAR EVALUATION"
+
+[node name="HSlider3" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 333.0
+offset_right = 948.0
+offset_bottom = 349.0
+
+[node name="Label5" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 351.0
+offset_right = 954.0
+offset_bottom = 374.0
+text = "INVESTSUBSIDY"
+script = ExtResource("7_7u681")
+
+[node name="HSlider4" type="HSlider" parent="Panel"]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 276.0
+offset_right = 949.0
+offset_bottom = 292.0
+
+[node name="Label6" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 294.0
+offset_right = 971.0
+offset_bottom = 317.0
+script = ExtResource("8_7i5po")
+
+[connection signal="pressed" from="Panel/Button" to="Node" method="_on_button_pressed"]
+[connection signal="button_down" from="Panel/Button2" to="Node" method="_on_button_2_button_down"]
+[connection signal="pressed" from="Panel/Button3" to="Node" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Panel/Button4" to="Node" method="_on_button_4_pressed"]
+[connection signal="pressed" from="Panel/Button5" to="Node" method="_on_button_5_pressed"]
+[connection signal="pressed" from="Panel/Button6" to="Node" method="_on_button_6_pressed"]
+[connection signal="pressed" from="Panel/Button7" to="Node" method="_on_button_7_pressed"]
+[connection signal="pressed" from="Panel/Button8" to="Node" method="_on_button_8_pressed"]
+[connection signal="value_changed" from="Panel/HSlider" to="Node" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/HSlider2" to="Node" method="_on_h_slider_2_value_changed"]
+[connection signal="pressed" from="Panel/Button9" to="Node" method="_on_button_9_pressed"]
+[connection signal="value_changed" from="Panel/HSlider3" to="Node" method="_on_h_slider_3_value_changed"]
+[connection signal="value_changed" from="Panel/HSlider4" to="Node" method="_on_h_slider_4_value_changed"]

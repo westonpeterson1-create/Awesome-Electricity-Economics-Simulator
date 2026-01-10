@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://br78ud7d8rdfm"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/JAPANDEMAND.csv"
+
+[params]
+
+compress=true
+delimiter=0

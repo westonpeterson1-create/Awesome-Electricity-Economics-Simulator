@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cqfr0cpd38bei"
+valid=false
+
+[deps]
+
+source_file="res://data_sci/FLORIDAWIND.csv"
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,5 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+HSMC_ENERGY_SIM_TOOL.pck
