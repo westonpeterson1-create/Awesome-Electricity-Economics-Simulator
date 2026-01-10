@@ -3,3 +3,7 @@
 /android/
 
 HSMC_ENERGY_SIM_TOOL.pck
+*.wasm
+*.js
+*.pck
+*.html
