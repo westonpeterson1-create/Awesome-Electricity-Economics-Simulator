@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "Nuclear (" + str(mathlib.LWRNuclearCapacity * 40) + " GW)"
+	self.text = "Nuclear (" + str(mathlib.LWRNuclearCapacity * mathlib.PeakDemand) + " GW)"
 	pass

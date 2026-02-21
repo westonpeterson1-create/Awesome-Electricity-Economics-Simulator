@@ -15,3 +15,5 @@ dest_files=["res://data_sci/CAISO-production-and-curtailments-data-2024.Hour.tra
 
 compress=true
 delimiter=0
+unescape_keys=false
+unescape_translations=true

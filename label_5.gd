@@ -33,5 +33,5 @@ func _process(delta: float) -> void:
 	coalfraction = coalfraction / (2184 * 4)
 	CO2Intensity = CO2Intensity + (coalfraction * coalco2coefficient)
 	
-	self.text = "CO2 intensity: " + str(CO2Intensity / mathlib.GetDemandCF())
+	self.text = "CO2 intensity: " + str(round(CO2Intensity / mathlib.GetDemandCF())) + " g/kwh"
 	pass

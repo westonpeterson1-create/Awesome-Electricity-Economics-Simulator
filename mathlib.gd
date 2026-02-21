@@ -28,6 +28,7 @@ static func Initiatevars() -> void:
 		WINDFILE="res://data_sci/JAPANWIND.csv"
 		SOLARFILE="res://data_sci/JAPANSOLAR.csv"
 		DEMANDFILE="res://data_sci/JAPANDEMAND.csv"
+		PeakDemand = 161
 		HYDROFRACTION = 0.085
 		WINTERHYDRO = 0.33 #Make sure these all average to 0.66 for HYDROFRACTION to work
 		SPRINGHYDRO = 1
@@ -42,6 +43,7 @@ static func Initiatevars() -> void:
 		WINDFILE="res://data_sci/GERMANYWIND.csv"
 		SOLARFILE="res://data_sci/GERMANYSOLAR.csv"
 		DEMANDFILE="res://data_sci/GERMANYDEMAND.csv"
+		PeakDemand = 57.7
 		HYDROFRACTION = 0.06
 		WINTERHYDRO = 0.33 #Make sure these all average to 0.66 for HYDROFRACTION to work
 		SPRINGHYDRO = 1
@@ -57,6 +59,7 @@ static func Initiatevars() -> void:
 		WINDFILE="res://data_sci/CAISOWIND.csv"
 		SOLARFILE="res://data_sci/CAISOSOLAR.csv"
 		DEMANDFILE="res://data_sci/CAISODEMAND.csv"
+		PeakDemand = 48.3
 		HYDROFRACTION = 0.1
 		WINTERHYDRO = 0.66 #Make sure these all average to 0.66 for HYDROFRACTION to work
 		SPRINGHYDRO = 1
@@ -72,6 +75,7 @@ static func Initiatevars() -> void:
 		WINDFILE="res://data_sci/FLORIDAWIND.csv"
 		SOLARFILE="res://data_sci/FLORIDASOLAR.csv"
 		DEMANDFILE="res://data_sci/FLORIDADEMAND.csv"
+		PeakDemand = 22.3
 		HYDROFRACTION = 0.005
 		WINTERHYDRO = 0.66 #Make sure these all average to 0.66 for HYDROFRACTION to work
 		SPRINGHYDRO = 1
@@ -84,7 +88,7 @@ static func Initiatevars() -> void:
 #ASSUMTPIONS
 
 #HIGH PRIORITY ASSUMPTIONS
-static var PeakDemand = 40
+static var PeakDemand = 0
 static var interestrate = Global.T_INTEREST
 static var CO2cost = Global.T_CARBONCOST #Per tonS
 static var D
@@ -191,6 +195,8 @@ static var previous_gas_storage = 0
 static var HydroElectricPower = 0
 static var SMRcapacityfactor = 0
 static var SMRTotal = 0
+
+
 static func Solar(Hour: float) -> float:
 #	if (Hour <= (546 * 4)): #Winter
 #		var mathfunc = sin(Hour * PI/12) * sin(Hour * PI/168) * 100
@@ -352,7 +358,9 @@ static func GetGasTurbineCapacity() -> float:
 	#if (secondcyclecapacity >= (ThermalBatterySteamCapacity - SFRNuclearCapacity)):
 	#	secondcyclecapacity = ThermalBatterySteamCapacity - SFRNuclearCapacity
 	#return (naturalturbinecapacity * (naturalturbinecapacity / (naturalturbinecapacity + secondcyclecapacity))) - RationedPower
+	
 	return 1 - RationedPower
+	#return 1 #RationedPower is unused and this is called a LOT, tiny optimization
 	
 
 static func RedundantDemandMod(Hour: float, seasonal_modifier: float) -> float:
@@ -508,8 +516,10 @@ static func HydrogenGridSize() -> float:
 	return AvgDistance * GwSize
 static var oldcoalthrottle = 0
 
+static var PRECOMPUTED_NETGEN = 0
+static var PREVIOUS_NETGEN_INPUT = 0
 static func NetGeneration(Hour: float) -> float:
-		return TotalGeneration(Hour) - DemandMod(Hour)
+	return TotalGeneration(Hour) - DemandMod(Hour)
 # Called when the node enters the scene tree for the first time.
 static func ThermGeneration(Hour: float) -> float:
 	var ThermalRelease = 0
@@ -522,6 +532,8 @@ static func ThermGeneration(Hour: float) -> float:
 	
 	return ThermalRelease
 
+static var ACTUAL_RELEASE_PRECOMPUTE = 0
+static var ACTUAL_RELEASE_HOUR = 0
 static func ActualRelease(Hour: float) -> float:
 	var thing = 0
 	if (NetGenIntegralStorageThermal[Hour] >= ThermGeneration(Hour)):
@@ -531,11 +543,13 @@ static func ActualRelease(Hour: float) -> float:
 		thing = NetGenIntegralStorageThermal[Hour]
 		return thing
 	return 0
+
 static var usedupsteam = 0
 static func SmartBackup(Hour: float) -> float: #MAKE SURE THIS IS ONLY <FUCKING> CALLED ONCE AND WITHIN BACKUPGENERATION FNCTION
-	var SmartBackup = SmartDispatch(Hour)
-	if (SmartDispatch(Hour) <= NetGenIntegralStorageThermal[Hour]):
-		SmartBackup = SmartDispatch(Hour) - ThermalBatterySteamCapacity
+	var dispatch = SmartDispatch(Hour)
+	var SmartBackup = dispatch
+	if (dispatch <= NetGenIntegralStorageThermal[Hour]):
+		SmartBackup = dispatch - ThermalBatterySteamCapacity
 	if (SmartBackup <= 0):
 		SmartBackup = 0
 	usedupsteam = SmartDispatch(Hour) - SmartBackup
@@ -543,6 +557,8 @@ static func SmartBackup(Hour: float) -> float: #MAKE SURE THIS IS ONLY <FUCKING>
 	return SmartBackup
 	
 static func BackupGeneration(Hour: float) -> float:
+	var netgen = NetGeneration(Hour)
+	var release = ActualRelease(Hour)
 	var secondcyclecapacity = GetGasTurbineCapacity() * ((1 - GasTurbineEfficiency) * 0.4) / GasTurbineEfficiency
 	if (secondcyclecapacity >= (ThermalBatterySteamCapacity - (SFRNuclearCapacity + usedupsteam))):
 		secondcyclecapacity = ThermalBatterySteamCapacity - (SFRNuclearCapacity + usedupsteam)
@@ -550,9 +566,9 @@ static func BackupGeneration(Hour: float) -> float:
 	if(secondcyclecapacity <= 0):
 		secondcyclecapacity = 0
 	var thing = 0
-	if (NetGeneration(Hour) < 0):
-		if (NetGeneration(Hour) + ActualRelease(Hour) < 0):
-			thing = (-1 * NetGeneration(Hour)) - ActualRelease(Hour)
+	if (netgen < 0):
+		if (netgen + release < 0):
+			thing = (-1 * netgen) - release
 	#print(SmartBackup(Hour))
 	GasTurbineThrottle[Hour] = thing
 	RationedPower = 1 - GasTurbineThrottle.max()
@@ -567,10 +583,10 @@ static func BackupGeneration(Hour: float) -> float:
 	if (GasSecondaryEnergy >= (ThermalBatterySteamCapacity - SFRNuclearCapacity)):
 		GasSecondaryEnergy = (ThermalBatterySteamCapacity - SFRNuclearCapacity)
 
-	if (GasSecondaryEnergy <= ActualRelease(Hour)):
+	if (GasSecondaryEnergy <= release):
 		NetGenIntegralStorageThermal[Hour] = NetGenIntegralStorageThermal[Hour] + GasSecondaryEnergy
 	else:
-		NetGenIntegralStorageThermal[Hour] + ActualRelease(Hour)
+		NetGenIntegralStorageThermal[Hour] + release
 	SecondCycleGraphStorage[Hour] = GasSecondaryEnergy
 	if(SecondCycleGraphStorage[Hour] > secondcyclecapacity):
 		SecondCycleGraphStorage[Hour] = secondcyclecapacity
@@ -612,6 +628,9 @@ static func DoNetGenIntegral() -> void:
 		HydrogenIntegral[lol] = 0
 		lol = lol + 1
 	while (i <= 2184*4):
+		var netgen = NetGeneration(i)
+		var release = ActualRelease(i)
+		var backup = BackupGeneration(i)
 		#print(Steam_Base_Throttle(i))
 		SFRHeat = (SFRNuclearCapacity - (1 * Steam_Base_Throttle(i))) / SFRNuclearCapacity
 		if (SFRHeat < 0):
@@ -631,11 +650,11 @@ static func DoNetGenIntegral() -> void:
 		#		additionalstoredsteam = (ThermalBatterySteamCapacity - SFRNuclearCapacity)
 		#NetGenIntegralStorageThermal[i] = NetGenIntegralStorageThermal[i] - additionalstoredsteam
 	#	minimum_gas = minimum_gas - additionalstoredsteam
-		NetGenIntegralStorage[i] = NetGeneration(i) + NetGenIntegralStorage[i - 1] - (SFRNuclearCapacity * SFRHeat)
+		NetGenIntegralStorage[i] = netgen + NetGenIntegralStorage[i - 1] - (SFRNuclearCapacity * SFRHeat)
 		NetGenIntegralStorage[i] = NetGenIntegralStorage[i] + SmartDispatch(i)
 		var ThermalSpecificGeneration = 0
-		if (NetGeneration(i) <= (SFRNuclearCapacity * SFRHeat)):
-			ThermalSpecificGeneration = NetGeneration(i)
+		if (netgen <= (SFRNuclearCapacity * SFRHeat)):
+			ThermalSpecificGeneration = netgen
 		else:
 			ThermalSpecificGeneration = SFRNuclearCapacity * SFRHeat
 		if (ThermalSpecificGeneration <= 0):
@@ -672,15 +691,16 @@ static func DoNetGenIntegral() -> void:
 			Hydroproduction = 0
 		#print(HydrogenIntegral[i])
 		#print(HydrogenStorage)
-		if (BackupGeneration(i) >= GetGasTurbineCapacity() * CCSFraction):
+		var mingas = minimum_gas(i)
+		if (backup >= GetGasTurbineCapacity() * CCSFraction):
 			var starter = 0
-			HydrogenIntegral[i] = HydrogenIntegral[i] - ((BackupGeneration(i) + minimum_gas(i)) - (((GetGasTurbineCapacity()) * CCSFraction)))
+			HydrogenIntegral[i] = HydrogenIntegral[i] - ((backup + mingas) - (((GetGasTurbineCapacity()) * CCSFraction)))
 			if (HydrogenIntegral[i] < 0):
 				starter = HydrogenIntegral[i]
 				if(starter > 0):
 					starter = 0
 				HydrogenIntegral[i] = 0
-			var Hydrogenburner = (BackupGeneration(i) + minimum_gas(i)) - (GetGasTurbineCapacity() * CCSFraction)
+			var Hydrogenburner = (backup + mingas) - (GetGasTurbineCapacity() * CCSFraction)
 			if(Hydrogenburner < 0):
 				Hydrogenburner = 0
 			Hydroproduction = Hydrogenburner + Hydroproduction + starter
@@ -700,7 +720,7 @@ static func DoNetGenIntegral() -> void:
 		#if(SMRCurtailment != 0):
 			#print(SMRCurtailment)
 		if (NetGenIntegralStorage[i] <= 0):
-			NetGenIntegralStorageThermal[i] = NetGenIntegralStorageThermal[i] - ActualRelease(i)
+			NetGenIntegralStorageThermal[i] = NetGenIntegralStorageThermal[i] - release
 		
 		if (NetGenIntegralStorage[i] <= 0):
 			NetGenIntegralStorage[i] = 0
@@ -973,18 +993,23 @@ static func wind_CF() -> float:
 		sum = sum + Wind(i)
 	return sum / (4*2184)
 static func read_file_to_array(file_path: String) -> Array:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	var lines = []
-	
-	if file:
-		while not file.eof_reached():
-			var line = file.get_line()
-			if line != "":  # Avoid adding empty lines at EOF
-				lines.append(line)
-		file.close()
-	else:
-		print("Failed to open file:", file_path)
-	
+	var lines := []
+
+	if not FileAccess.file_exists(file_path):
+		print("FILE DOES NOT EXIST:", file_path)
+		return lines
+
+	var file := FileAccess.open(file_path, FileAccess.READ)
+	if not file:
+		print("FAILED TO OPEN FILE:", file_path)
+		return lines
+
+	while not file.eof_reached():
+		var line := file.get_line().strip_edges()
+		if line != "":
+			lines.append(float(line))
+
+	file.close()
 	return lines
 
 static func Get_Production_Subsidy() -> float:
@@ -1029,6 +1054,8 @@ func _on_battery_up_button_pressed() -> void:
 
 func _on_battery_down_button_pressed() -> void:
 	BatteryCapacity = BatteryCapacity - 0.5
+	if (BatteryCapacity <= 0):
+		BatteryCapacity = 0
 	pass # Replace with function body.
 
 

@@ -16,7 +16,7 @@ func Calculate() -> void:
 	var i = 0
 	while (i <= 2184*4):
 		#add_point(Vector2(i * 7, 800 - (((mathlib.TotalGeneration(i) - mathlib.CoalGenIntegralStorage[i] - (mathlib.Steam_Base_Throttle(i) * 1) - mathlib.NukeCurtailments[i]) * 800))))
-		add_point(Vector2(i * 7, 800 - ((mathlib.SolarPower(i) + mathlib.HydroPower(i) + mathlib.WindPower(i) + mathlib.LWRNuclearCapacity + mathlib.SFRNuclearCapacity) - mathlib.NukeCurtailments[i]) * 800))
+		add_point(Vector2(i * 7, 800 - ((mathlib.SolarPower(i) + mathlib.HydroPower(i) + mathlib.WindPower(i) + mathlib.LWRNuclearCapacity) - mathlib.NukeCurtailments[i]) * 800))
 		i = i + 168/60
 		
 	i = 0

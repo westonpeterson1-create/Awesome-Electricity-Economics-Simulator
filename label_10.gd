@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "CCS %: " + str(mathlib.CCSFraction)
+	self.text = "CCS: " + str(mathlib.CCSFraction*100)+"%"
 	pass

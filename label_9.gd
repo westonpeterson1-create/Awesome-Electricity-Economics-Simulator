@@ -1,6 +1,7 @@
 extends Label
 const mathlib = preload("res://mathlib.gd")
-
+func round_place(num):
+	return (round(num*pow(10,5))/pow(10,5))
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,7 +53,7 @@ func _process(delta: float) -> void:
 	yearlycost = (yearlycost / 8760) * 100
 	yearlycost = yearlycost / mathlib.GetDemandCF()
 	if (mathlib.ShouldUpdateCost == 1):
-		self.text = "Cost80: " + str(yearlycost + (carbonfee / mathlib.GetDemandCF()) + coalkwhcost + PollutionCost - mathlib.Get_Production_Subsidy())
+		self.text = "Cost80: " + str(round_place(yearlycost + (carbonfee / mathlib.GetDemandCF()) + coalkwhcost + PollutionCost - mathlib.Get_Production_Subsidy())) + "c/kwh"
 		mathlib.ShouldUpdateCost = 0
 	if(Global.T_EVALPERIOD != 80):
 		self.text = " "

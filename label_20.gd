@@ -9,6 +9,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var HydrogenStorage = mathlib.SteamReformer * 40
+	var HydrogenStorage = mathlib.SteamReformer * mathlib.PeakDemand
 	self.text = "Steam Reforming: (" + str(HydrogenStorage) + " GW)"
 	pass

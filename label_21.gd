@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 	var AvgDistance =  sqrt((mathlib.LandUse() * 200)/3.14) * 0.66 #For transmission loss
 	AvgDistance = AvgDistance + (60 * (mathlib.CoalCapacity + mathlib.LWRNuclearCapacity + mathlib.SFRNuclearCapacity + mathlib.GetGasTurbineCapacity()))
 	AvgDistance = AvgDistance / 2
-	self.text = "Avg Distance: " + str(AvgDistance) + " KM"
+	self.text = "Avg Distance: " + str(round(AvgDistance)) + "km "
 	pass

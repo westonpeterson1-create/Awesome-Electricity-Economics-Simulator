@@ -1,7 +1,8 @@
 extends Label
 const mathlib = preload("res://mathlib.gd")
 
-
+func round_place(num):
+	return (round(num*pow(10,5))/pow(10,5))
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -49,7 +50,7 @@ func _process(delta: float) -> void:
 	yearlycost = (yearlycost / 8760) * 100
 	yearlycost = yearlycost / mathlib.GetDemandCF()
 	if (mathlib.ShouldUpdateCost == 1):
-		self.text = "Cost40: " + str(yearlycost + (carbonfee / mathlib.GetDemandCF()) + coalkwhcost - mathlib.Get_Production_Subsidy())
+		self.text = "Cost40: " + str(round_place(yearlycost + (carbonfee / mathlib.GetDemandCF()) + coalkwhcost - mathlib.Get_Production_Subsidy())) + " c/kwh"
 		mathlib.ShouldUpdateCost = 0
 		#Turned on even though we have DISCOUNT RATE!
 	if(Global.T_EVALPERIOD != 40):

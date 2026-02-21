@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	var hydrofraction = (mathlib.Hydroproduction / (2184 * 4)) / ((UnscrubbedEmissions2 + 0.00001) / 494)
 	if (hydrofraction > 1):
 		hydrofraction = 1
-	self.text = "Hydrogen Blend: " + str(hydrofraction)
+	self.text = "H2 Blend: " + str(hydrofraction*100) + "%"
 	pass

@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "Cost per KW: " + str(mathlib.GetCAPEX())
+	self.text = "Cost per KW: $" + str(round(mathlib.GetCAPEX()))
 	pass

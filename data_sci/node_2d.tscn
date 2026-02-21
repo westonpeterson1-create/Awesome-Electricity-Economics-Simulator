@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6sxodu2610o1"]
+[gd_scene format=3 uid="uid://6sxodu2610o1"]
 
 [ext_resource type="Script" uid="uid://bxdfusspc0h8g" path="res://data_sci/Global.gd" id="1_clw3y"]
 [ext_resource type="Script" uid="uid://du5fq6ts33gsa" path="res://data_sci/node.gd" id="1_v851v"]
@@ -9,17 +9,19 @@
 [ext_resource type="Script" uid="uid://bo7o1gcnjpgxk" path="res://data_sci/label_5.gd" id="7_7u681"]
 [ext_resource type="Script" uid="uid://cnsjs0k6n037y" path="res://data_sci/label_6.gd" id="8_7i5po"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=953639830]
 script = ExtResource("1_clw3y")
 
-[node name="Node" type="Node" parent="."]
+[node name="Node" type="Node" parent="." unique_id=871288972]
 script = ExtResource("1_v851v")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 1153.0
-offset_bottom = 648.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1000214463]
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1334214581]
+offset_right = 1754.0
+offset_bottom = 1067.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel" unique_id=1145564646]
 layout_mode = 0
 offset_left = 804.0
 offset_top = 570.0
@@ -27,7 +29,7 @@ offset_right = 1122.0
 offset_bottom = 631.0
 text = "START 40 YEAR EVALUATION"
 
-[node name="Button2" type="Button" parent="Panel"]
+[node name="Button2" type="Button" parent="CanvasLayer/Panel" unique_id=192675926]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 57.0
@@ -35,7 +37,7 @@ offset_right = 206.0
 offset_bottom = 109.0
 text = "JAPAN"
 
-[node name="Button3" type="Button" parent="Panel"]
+[node name="Button3" type="Button" parent="CanvasLayer/Panel" unique_id=1068192549]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 133.0
@@ -43,7 +45,7 @@ offset_right = 207.0
 offset_bottom = 187.0
 text = "GERMANY"
 
-[node name="Button4" type="Button" parent="Panel"]
+[node name="Button4" type="Button" parent="CanvasLayer/Panel" unique_id=2115178340]
 layout_mode = 0
 offset_left = 37.0
 offset_top = 207.0
@@ -51,7 +53,7 @@ offset_right = 208.0
 offset_bottom = 261.0
 text = "CALIFORNIA"
 
-[node name="Button5" type="Button" parent="Panel"]
+[node name="Button5" type="Button" parent="CanvasLayer/Panel" unique_id=1891258475]
 layout_mode = 0
 offset_left = 37.0
 offset_top = 283.0
@@ -60,7 +62,7 @@ offset_bottom = 337.0
 text = "FLORIDA
 "
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=446470410]
 layout_mode = 0
 offset_left = 797.0
 offset_top = 438.0
@@ -69,7 +71,7 @@ offset_bottom = 461.0
 text = "LOCATION"
 script = ExtResource("3_220bk")
 
-[node name="Button6" type="Button" parent="Panel"]
+[node name="Button6" type="Button" parent="CanvasLayer/Panel" unique_id=2077022376]
 layout_mode = 0
 offset_left = 778.0
 offset_top = 58.0
@@ -77,7 +79,7 @@ offset_right = 1131.0
 offset_bottom = 89.0
 text = "AMERICA: 2040"
 
-[node name="Button7" type="Button" parent="Panel"]
+[node name="Button7" type="Button" parent="CanvasLayer/Panel" unique_id=595209465]
 layout_mode = 0
 offset_left = 780.0
 offset_top = 110.0
@@ -85,7 +87,7 @@ offset_right = 1130.0
 offset_bottom = 141.0
 text = "AMERICA: 2040 (Solar revolution)"
 
-[node name="Button8" type="Button" parent="Panel"]
+[node name="Button8" type="Button" parent="CanvasLayer/Panel" unique_id=1323256641]
 layout_mode = 0
 offset_left = 781.0
 offset_top = 165.0
@@ -93,7 +95,7 @@ offset_right = 1132.0
 offset_bottom = 196.0
 text = "AMERICA: 2025"
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="Label2" type="Label" parent="CanvasLayer/Panel" unique_id=1549110586]
 layout_mode = 0
 offset_left = 797.0
 offset_top = 464.0
@@ -102,14 +104,14 @@ offset_bottom = 487.0
 text = "COST DATA"
 script = ExtResource("4_j5nvb")
 
-[node name="HSlider" type="HSlider" parent="Panel"]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1446488618]
 layout_mode = 0
 offset_left = 793.0
 offset_top = 496.0
 offset_right = 950.0
 offset_bottom = 512.0
 
-[node name="Label3" type="Label" parent="Panel"]
+[node name="Label3" type="Label" parent="CanvasLayer/Panel" unique_id=1932690167]
 layout_mode = 0
 offset_left = 797.0
 offset_top = 517.0
@@ -118,14 +120,14 @@ offset_bottom = 540.0
 text = "INTEREST"
 script = ExtResource("5_ew5ih")
 
-[node name="HSlider2" type="HSlider" parent="Panel"]
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/Panel" unique_id=332557573]
 layout_mode = 0
 offset_left = 789.0
 offset_top = 398.0
 offset_right = 948.0
 offset_bottom = 414.0
 
-[node name="Label4" type="Label" parent="Panel"]
+[node name="Label4" type="Label" parent="CanvasLayer/Panel" unique_id=1533350335]
 layout_mode = 0
 offset_left = 793.0
 offset_top = 415.0
@@ -134,22 +136,22 @@ offset_bottom = 438.0
 text = "CARBON COST"
 script = ExtResource("6_plj62")
 
-[node name="Button9" type="Button" parent="Panel"]
+[node name="Button9" type="Button" parent="CanvasLayer/Panel" unique_id=1677392898]
 layout_mode = 0
 offset_left = 499.0
 offset_top = 571.0
 offset_right = 791.0
 offset_bottom = 633.0
-text = "START 80 YEAR EVALUATION"
+text = "COMING SOON"
 
-[node name="HSlider3" type="HSlider" parent="Panel"]
+[node name="HSlider3" type="HSlider" parent="CanvasLayer/Panel" unique_id=2092821618]
 layout_mode = 0
 offset_left = 789.0
 offset_top = 333.0
 offset_right = 948.0
 offset_bottom = 349.0
 
-[node name="Label5" type="Label" parent="Panel"]
+[node name="Label5" type="Label" parent="CanvasLayer/Panel" unique_id=541716036]
 layout_mode = 0
 offset_left = 796.0
 offset_top = 351.0
@@ -158,14 +160,14 @@ offset_bottom = 374.0
 text = "INVESTSUBSIDY"
 script = ExtResource("7_7u681")
 
-[node name="HSlider4" type="HSlider" parent="Panel"]
+[node name="HSlider4" type="HSlider" parent="CanvasLayer/Panel" unique_id=1225819285]
 layout_mode = 0
 offset_left = 791.0
 offset_top = 276.0
 offset_right = 949.0
 offset_bottom = 292.0
 
-[node name="Label6" type="Label" parent="Panel"]
+[node name="Label6" type="Label" parent="CanvasLayer/Panel" unique_id=345826599]
 layout_mode = 0
 offset_left = 797.0
 offset_top = 294.0
@@ -173,16 +175,15 @@ offset_right = 971.0
 offset_bottom = 317.0
 script = ExtResource("8_7i5po")
 
-[connection signal="pressed" from="Panel/Button" to="Node" method="_on_button_pressed"]
-[connection signal="button_down" from="Panel/Button2" to="Node" method="_on_button_2_button_down"]
-[connection signal="pressed" from="Panel/Button3" to="Node" method="_on_button_3_pressed"]
-[connection signal="pressed" from="Panel/Button4" to="Node" method="_on_button_4_pressed"]
-[connection signal="pressed" from="Panel/Button5" to="Node" method="_on_button_5_pressed"]
-[connection signal="pressed" from="Panel/Button6" to="Node" method="_on_button_6_pressed"]
-[connection signal="pressed" from="Panel/Button7" to="Node" method="_on_button_7_pressed"]
-[connection signal="pressed" from="Panel/Button8" to="Node" method="_on_button_8_pressed"]
-[connection signal="value_changed" from="Panel/HSlider" to="Node" method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="Panel/HSlider2" to="Node" method="_on_h_slider_2_value_changed"]
-[connection signal="pressed" from="Panel/Button9" to="Node" method="_on_button_9_pressed"]
-[connection signal="value_changed" from="Panel/HSlider3" to="Node" method="_on_h_slider_3_value_changed"]
-[connection signal="value_changed" from="Panel/HSlider4" to="Node" method="_on_h_slider_4_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="Node" method="_on_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/Panel/Button2" to="Node" method="_on_button_2_button_down"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button3" to="Node" method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button4" to="Node" method="_on_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button5" to="Node" method="_on_button_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button6" to="Node" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button7" to="Node" method="_on_button_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/Button8" to="Node" method="_on_button_8_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider" to="Node" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider2" to="Node" method="_on_h_slider_2_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider3" to="Node" method="_on_h_slider_3_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider4" to="Node" method="_on_h_slider_4_value_changed"]

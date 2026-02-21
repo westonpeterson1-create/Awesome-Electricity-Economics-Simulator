@@ -1,15 +1,3 @@
 [remap]
 
-importer="csv_translation"
-type="Translation"
-uid="uid://c0y3nrryh4kyi"
-valid=false
-
-[deps]
-
-source_file="res://data_sci/CAISODEMAND.csv"
-
-[params]
-
-compress=true
-delimiter=0
+importer="keep"

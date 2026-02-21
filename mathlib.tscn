@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d26c7xv102iee"]
+[gd_scene format=3 uid="uid://d26c7xv102iee"]
 
 [ext_resource type="Script" uid="uid://bxlc7hcal17mn" path="res://mathlib.gd" id="1_a0keu"]
 [ext_resource type="Script" uid="uid://d3f5n3m2hqssy" path="res://solar_potential.gd" id="2_n3l4o"]
@@ -41,41 +41,102 @@
 [ext_resource type="Script" uid="uid://bc4rlu6lcvhmg" path="res://coal_generation.gd" id="36_tw4tu"]
 [ext_resource type="Script" uid="uid://b3v6y35qn0xhv" path="res://combined_cycle_second.gd" id="37_8xnxq"]
 [ext_resource type="Script" uid="uid://bggugojlq5hey" path="res://steam.gd" id="39_btllu"]
+[ext_resource type="Script" uid="uid://c33rvg65uo27h" path="res://testes.gd" id="42_bgylb"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=34807917]
 
-[node name="mathlib" type="Node" parent="."]
+[node name="mathlib" type="Node" parent="." unique_id=143804965]
 script = ExtResource("1_a0keu")
 
-[node name="SolarPower" type="Line2D" parent="."]
+[node name="SolarPower" type="Line2D" parent="." unique_id=2030814576]
 points = PackedVector2Array(1149, 14)
 width = 2.0
 default_color = Color(0.902951, 0.919277, 0.12163, 1)
 script = ExtResource("2_n3l4o")
 
-[node name="WindPower" type="Line2D" parent="."]
+[node name="WindPower" type="Line2D" parent="." unique_id=1605691510]
 points = PackedVector2Array(1149, 14)
 width = 2.0
 default_color = Color(0, 1, 1, 1)
 script = ExtResource("3_v1u3t")
 
-[node name="Demand" type="Line2D" parent="."]
+[node name="Demand" type="Line2D" parent="." unique_id=484056495]
 points = PackedVector2Array(1149, 14)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 script = ExtResource("4_x6fa5")
 
-[node name="MyCamera2D" type="Camera2D" parent="."]
+[node name="MyCamera2D" type="Camera2D" parent="." unique_id=906140687]
 position = Vector2(577, 325)
 script = ExtResource("5_h0bql")
 
-[node name="Panel" type="Panel" parent="MyCamera2D"]
-offset_left = -576.0
-offset_top = -326.0
-offset_right = 1156.0
-offset_bottom = -132.0
+[node name="Net_Surplus" type="Line2D" parent="." unique_id=559746064]
+points = PackedVector2Array(1149, 14)
+width = 2.0
+default_color = Color(0.634159, 0.340683, 1, 1)
+script = ExtResource("6_46770")
 
-[node name="RationSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="Net_Generation" type="Line2D" parent="." unique_id=189412810]
+points = PackedVector2Array(1149, 14)
+width = 2.0
+default_color = Color(0.0117647, 1, 0.0235294, 1)
+script = ExtResource("7_3rubg")
+
+[node name="StoragePotential" type="Line2D" parent="." unique_id=796360104]
+points = PackedVector2Array(1149, 14)
+width = 2.0
+default_color = Color(0.924402, 0.0217378, 1, 1)
+script = ExtResource("8_wru50")
+
+[node name="GasGeneration" type="Line2D" parent="." unique_id=1744697577]
+points = PackedVector2Array(1149, 14)
+width = 2.0
+default_color = Color(0, 0.513451, 0.607332, 1)
+script = ExtResource("28_q3tg6")
+
+[node name="StoragePotential2" type="Line2D" parent="." unique_id=338221843]
+points = PackedVector2Array(1149, 14)
+width = 2.0
+default_color = Color(0.930076, 0.4128, 0.0818379, 1)
+script = ExtResource("20_gnepr")
+
+[node name="Timer" type="Timer" parent="." unique_id=64348286]
+wait_time = 0.1
+one_shot = true
+autostart = true
+script = ExtResource("33_4risk")
+
+[node name="CoalGeneration" type="Line2D" parent="." unique_id=2038355401]
+width = 2.0
+default_color = Color(0.391499, 0.0595605, 2.40654e-08, 1)
+script = ExtResource("36_tw4tu")
+
+[node name="CombinedCycleSecond" type="Line2D" parent="." unique_id=290266090]
+width = 2.0
+default_color = Color(0.6, 0, 1, 1)
+script = ExtResource("37_8xnxq")
+
+[node name="Steam" type="Line2D" parent="." unique_id=443012738]
+width = 2.0
+default_color = Color(0.938905, 0.898262, 1, 1)
+script = ExtResource("39_btllu")
+
+[node name="Label" type="Label" parent="." unique_id=76798232]
+offset_left = 908.0
+offset_top = 487.0
+offset_right = 1152.0
+offset_bottom = 646.0
+script = ExtResource("42_bgylb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1517960478]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1778335091]
+offset_top = -1.0
+offset_right = 3008.0
+offset_bottom = 193.0
+metadata/_edit_lock_ = true
+
+[node name="RationSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=2133743682]
 visible = false
 layout_mode = 0
 offset_left = 270.0
@@ -85,14 +146,14 @@ offset_bottom = 87.0
 editable = false
 scrollable = false
 
-[node name="SolarSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="SolarSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=518046105]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 17.0
 offset_right = 197.0
 offset_bottom = 47.0
 
-[node name="Label" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=474740373]
 layout_mode = 0
 offset_left = 201.0
 offset_top = 19.0
@@ -101,23 +162,23 @@ offset_bottom = 42.0
 text = "SOLAR"
 script = ExtResource("6_qnyfm")
 
-[node name="WindSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="WindSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1431336870]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 32.0
 offset_right = 196.0
 offset_bottom = 62.0
 
-[node name="Label2" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label2" type="Label" parent="CanvasLayer/Panel" unique_id=1238817930]
 layout_mode = 0
-offset_left = 199.0
+offset_left = 200.0
 offset_top = 35.0
-offset_right = 311.0
+offset_right = 312.0
 offset_bottom = 58.0
 text = "WIND"
 script = ExtResource("7_yjvj0")
 
-[node name="Label3" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label3" type="Label" parent="CanvasLayer/Panel" unique_id=567322352]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 171.0
@@ -126,7 +187,7 @@ offset_bottom = 194.0
 text = "BATTERYCAPAC"
 script = ExtResource("8_rk4bg")
 
-[node name="BatteryUpButton" type="Button" parent="MyCamera2D/Panel"]
+[node name="BatteryUpButton" type="Button" parent="CanvasLayer/Panel" unique_id=247679390]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 125.0
@@ -134,14 +195,14 @@ offset_right = 36.0
 offset_bottom = 156.0
 script = ExtResource("9_4f4u5")
 
-[node name="BatteryDownButton" type="Button" parent="MyCamera2D/Panel"]
+[node name="BatteryDownButton" type="Button" parent="CanvasLayer/Panel" unique_id=1919782375]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 159.0
 offset_right = 37.0
 offset_bottom = 190.0
 
-[node name="Label4" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label4" type="Label" parent="CanvasLayer/Panel" unique_id=1168351956]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 113.0
@@ -150,7 +211,7 @@ offset_bottom = 136.0
 text = "COST PER KW"
 script = ExtResource("10_oi2js")
 
-[node name="Label5" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label5" type="Label" parent="CanvasLayer/Panel" unique_id=940275962]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 135.0
@@ -159,14 +220,14 @@ offset_bottom = 158.0
 text = "CO2"
 script = ExtResource("11_e44q3")
 
-[node name="LWRSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="LWRSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1863453793]
 layout_mode = 0
 offset_left = 649.0
 offset_top = -5.0
 offset_right = 826.0
 offset_bottom = 25.0
 
-[node name="Label6" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label6" type="Label" parent="CanvasLayer/Panel" unique_id=13946939]
 layout_mode = 0
 offset_left = 652.0
 offset_top = 15.0
@@ -175,16 +236,16 @@ offset_bottom = 38.0
 text = "LWR NUCLEAR"
 script = ExtResource("12_c3knr")
 
-[node name="Label7" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label7" type="Label" parent="CanvasLayer/Panel" unique_id=1458124104]
 layout_mode = 0
-offset_left = 306.0
-offset_top = 60.0
-offset_right = 471.0
-offset_bottom = 83.0
+offset_left = 341.0
+offset_top = 81.0
+offset_right = 506.0
+offset_bottom = 104.0
 text = "GASCAPACITY"
 script = ExtResource("13_bdep0")
 
-[node name="Label8" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label8" type="Label" parent="CanvasLayer/Panel" unique_id=1021071522]
 layout_mode = 0
 offset_left = 61.0
 offset_top = 93.0
@@ -193,7 +254,7 @@ offset_bottom = 116.0
 text = "LFSCO40"
 script = ExtResource("14_7toyg")
 
-[node name="Label9" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label9" type="Label" parent="CanvasLayer/Panel" unique_id=450530064]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 93.0
@@ -202,44 +263,44 @@ offset_bottom = 116.0
 text = "LFSCO80"
 script = ExtResource("15_vapwq")
 
-[node name="CCSSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="CCSSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1339312890]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 25.0
-offset_right = 492.0
-offset_bottom = 41.0
+offset_left = 339.0
+offset_top = 6.0
+offset_right = 526.0
+offset_bottom = 22.0
 
-[node name="Label10" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label10" type="Label" parent="CanvasLayer/Panel" unique_id=1469955788]
 layout_mode = 0
-offset_left = 495.0
-offset_top = 21.0
-offset_right = 635.0
-offset_bottom = 45.0
+offset_left = 341.0
+offset_top = 18.0
+offset_right = 481.0
+offset_bottom = 42.0
 text = "CCS"
 script = ExtResource("16_uqvaa")
 
-[node name="SFRSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="SFRSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=352090359]
 layout_mode = 0
 offset_left = 648.0
 offset_top = 37.0
 offset_right = 824.0
 offset_bottom = 53.0
 
-[node name="ThermalSteamSlider" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="ThermalSteamSlider" type="HSlider" parent="CanvasLayer/Panel" unique_id=1708741142]
 layout_mode = 0
-offset_left = 306.0
-offset_top = 43.0
-offset_right = 493.0
-offset_bottom = 59.0
+offset_left = 339.0
+offset_top = 41.0
+offset_right = 526.0
+offset_bottom = 57.0
 
-[node name="ThermStrSldr" type="VSlider" parent="MyCamera2D/Panel"]
+[node name="ThermStrSldr" type="VSlider" parent="CanvasLayer/Panel" unique_id=854172151]
 layout_mode = 0
 offset_left = 887.0
 offset_top = 109.0
 offset_right = 903.0
 offset_bottom = 185.0
 
-[node name="Label11" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label11" type="Label" parent="CanvasLayer/Panel" unique_id=1021988894]
 layout_mode = 0
 offset_left = 651.0
 offset_top = 50.0
@@ -248,16 +309,16 @@ offset_bottom = 73.0
 text = "GEN4 NUCLEAR"
 script = ExtResource("17_g3e7x")
 
-[node name="Label12" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label12" type="Label" parent="CanvasLayer/Panel" unique_id=968486506]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 38.0
-offset_right = 583.0
-offset_bottom = 61.0
+offset_left = 342.0
+offset_top = 55.0
+offset_right = 429.0
+offset_bottom = 78.0
 text = "STEAMCAP"
 script = ExtResource("18_684sv")
 
-[node name="Label13" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label13" type="Label" parent="CanvasLayer/Panel" unique_id=773586286]
 layout_mode = 0
 offset_left = 907.0
 offset_top = 158.0
@@ -266,7 +327,7 @@ offset_bottom = 181.0
 text = "THERMAL STORE"
 script = ExtResource("19_qkvyv")
 
-[node name="Label14" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label14" type="Label" parent="CanvasLayer/Panel" unique_id=1489476694]
 layout_mode = 0
 offset_left = 907.0
 offset_top = 116.0
@@ -275,7 +336,7 @@ offset_bottom = 139.0
 text = "Hydrogen Blend"
 script = ExtResource("20_vh5kf")
 
-[node name="Label15" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label15" type="Label" parent="CanvasLayer/Panel" unique_id=192888547]
 layout_mode = 0
 offset_left = 910.0
 offset_top = 22.0
@@ -284,7 +345,7 @@ offset_bottom = 45.0
 text = "Electrolyzer"
 script = ExtResource("21_1km4w")
 
-[node name="Label16" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label16" type="Label" parent="CanvasLayer/Panel" unique_id=24554349]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 52.0
@@ -293,14 +354,14 @@ offset_bottom = 75.0
 text = "LAND USE"
 script = ExtResource("22_p3fod")
 
-[node name="HydroStorageSldr" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="HydroStorageSldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=567790464]
 layout_mode = 0
 offset_left = 908.0
 offset_top = 45.0
 offset_right = 1087.0
 offset_bottom = 61.0
 
-[node name="Label18" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label18" type="Label" parent="CanvasLayer/Panel" unique_id=406011494]
 visible = false
 layout_mode = 0
 offset_left = 459.0
@@ -310,7 +371,7 @@ offset_bottom = 84.0
 text = "RATIONABLE"
 script = ExtResource("24_a1deg")
 
-[node name="Label19" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label19" type="Label" parent="CanvasLayer/Panel" unique_id=1594532768]
 layout_mode = 0
 offset_left = 910.0
 offset_top = 61.0
@@ -319,14 +380,14 @@ offset_bottom = 84.0
 text = "HYDROGEN STORAGE"
 script = ExtResource("25_hsdke")
 
-[node name="SMRSldr" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="SMRSldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=1460446420]
 layout_mode = 0
 offset_left = 908.0
 offset_top = 83.0
 offset_right = 1103.0
 offset_bottom = 99.0
 
-[node name="Label20" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label20" type="Label" parent="CanvasLayer/Panel" unique_id=1751891298]
 layout_mode = 0
 offset_left = 908.0
 offset_top = 99.0
@@ -335,7 +396,7 @@ offset_bottom = 122.0
 text = "METHANE REFORMING"
 script = ExtResource("26_0vf4a")
 
-[node name="Label21" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label21" type="Label" parent="CanvasLayer/Panel" unique_id=1073257844]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 74.0
@@ -344,7 +405,7 @@ offset_bottom = 97.0
 text = "TRANS DISTANCE"
 script = ExtResource("27_a32d8")
 
-[node name="Label22" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label22" type="Label" parent="CanvasLayer/Panel" unique_id=57651155]
 layout_mode = 0
 offset_left = 1219.0
 offset_top = 1.0
@@ -352,7 +413,7 @@ offset_right = 1488.0
 offset_bottom = 135.0
 script = ExtResource("28_uoher")
 
-[node name="Label17" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label17" type="Label" parent="CanvasLayer/Panel" unique_id=1041905112]
 layout_mode = 0
 offset_left = 252.0
 offset_top = 164.0
@@ -360,7 +421,7 @@ offset_right = 422.0
 offset_bottom = 187.0
 script = ExtResource("28_sf50c")
 
-[node name="Season_dschrg_1" type="VSlider" parent="MyCamera2D/Panel"]
+[node name="Season_dschrg_1" type="VSlider" parent="CanvasLayer/Panel" unique_id=438596619]
 visible = false
 layout_mode = 0
 offset_left = 639.0
@@ -368,7 +429,7 @@ offset_top = 96.0
 offset_right = 655.0
 offset_bottom = 180.0
 
-[node name="Season_dschrg_2" type="VSlider" parent="MyCamera2D/Panel"]
+[node name="Season_dschrg_2" type="VSlider" parent="CanvasLayer/Panel" unique_id=8484887]
 visible = false
 layout_mode = 0
 offset_left = 664.0
@@ -376,7 +437,7 @@ offset_top = 96.0
 offset_right = 680.0
 offset_bottom = 180.0
 
-[node name="Season_dschrg_3" type="VSlider" parent="MyCamera2D/Panel"]
+[node name="Season_dschrg_3" type="VSlider" parent="CanvasLayer/Panel" unique_id=275062397]
 visible = false
 layout_mode = 0
 offset_left = 689.0
@@ -384,7 +445,7 @@ offset_top = 96.0
 offset_right = 705.0
 offset_bottom = 180.0
 
-[node name="Season_dschrg_4" type="VSlider" parent="MyCamera2D/Panel"]
+[node name="Season_dschrg_4" type="VSlider" parent="CanvasLayer/Panel" unique_id=1807306500]
 visible = false
 layout_mode = 0
 offset_left = 713.0
@@ -392,14 +453,14 @@ offset_top = 97.0
 offset_right = 729.0
 offset_bottom = 181.0
 
-[node name="Hydroelectric_sldr" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="Hydroelectric_sldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=207964465]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 8.0
 offset_right = 197.0
 offset_bottom = 24.0
 
-[node name="Label23" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label23" type="Label" parent="CanvasLayer/Panel" unique_id=494831022]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 3.0
@@ -408,159 +469,66 @@ offset_bottom = 26.0
 text = "HYDRO"
 script = ExtResource("29_nc04f")
 
-[node name="CoalSldr" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="CoalSldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=1470740462]
 layout_mode = 0
 offset_left = 649.0
 offset_top = 74.0
 offset_right = 833.0
 offset_bottom = 90.0
 
-[node name="Label24" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label24" type="Label" parent="CanvasLayer/Panel" unique_id=648668281]
 layout_mode = 0
-offset_left = 656.0
-offset_top = 92.0
-offset_right = 834.0
-offset_bottom = 115.0
+offset_left = 652.0
+offset_top = 87.0
+offset_right = 830.0
+offset_bottom = 110.0
+text = "COAL"
 script = ExtResource("30_fmjir")
 
-[node name="BiogasSldr" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="BiogasSldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=949066702]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 86.0
-offset_right = 531.0
-offset_bottom = 102.0
+offset_left = 325.0
+offset_top = 124.0
+offset_right = 511.0
+offset_bottom = 140.0
 
-[node name="DistSolarSldr" type="HSlider" parent="MyCamera2D/Panel"]
+[node name="DistSolarSldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=1123517073]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 131.0
-offset_right = 527.0
-offset_bottom = 147.0
+offset_left = 536.0
+offset_top = 125.0
+offset_right = 723.0
+offset_bottom = 141.0
 
-[node name="Label25" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label25" type="Label" parent="CanvasLayer/Panel" unique_id=768166906]
 layout_mode = 0
-offset_left = 356.0
-offset_top = 106.0
-offset_right = 464.0
-offset_bottom = 129.0
+offset_left = 335.0
+offset_top = 141.0
+offset_right = 443.0
+offset_bottom = 164.0
 text = "BIOMASS_USE"
 script = ExtResource("31_t0bqs")
 
-[node name="Label26" type="Label" parent="MyCamera2D/Panel"]
+[node name="Label26" type="Label" parent="CanvasLayer/Panel" unique_id=153986822]
 layout_mode = 0
-offset_left = 358.0
-offset_top = 152.0
-offset_right = 530.0
-offset_bottom = 175.0
+offset_left = 544.0
+offset_top = 141.0
+offset_right = 734.0
+offset_bottom = 164.0
 text = "STEAMCAP CHARGYNESS"
 script = ExtResource("32_njegw")
 
-[node name="Electrolyzersldr" type="HSlider" parent="MyCamera2D"]
-offset_left = 334.0
-offset_top = -316.0
-offset_right = 523.0
-offset_bottom = -300.0
-
-[node name="Net_Surplus" type="Line2D" parent="."]
-points = PackedVector2Array(1149, 14)
-width = 2.0
-default_color = Color(0.634159, 0.340683, 1, 1)
-script = ExtResource("6_46770")
-
-[node name="Net_Generation" type="Line2D" parent="."]
-points = PackedVector2Array(1149, 14)
-width = 2.0
-default_color = Color(0.0117647, 1, 0.0235294, 1)
-script = ExtResource("7_3rubg")
-
-[node name="StoragePotential" type="Line2D" parent="."]
-points = PackedVector2Array(1149, 14)
-width = 2.0
-default_color = Color(0.924402, 0.0217378, 1, 1)
-script = ExtResource("8_wru50")
-
-[node name="GasGeneration" type="Line2D" parent="."]
-points = PackedVector2Array(1149, 14)
-width = 2.0
-default_color = Color(0, 0.513451, 0.607332, 1)
-script = ExtResource("28_q3tg6")
-
-[node name="StoragePotential2" type="Line2D" parent="."]
-points = PackedVector2Array(1149, 14)
-width = 2.0
-default_color = Color(0.930076, 0.4128, 0.0818379, 1)
-script = ExtResource("20_gnepr")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-autostart = true
-script = ExtResource("33_4risk")
-
-[node name="CoalGeneration" type="Line2D" parent="."]
-width = 2.0
-default_color = Color(0.391499, 0.0595605, 2.40654e-08, 1)
-script = ExtResource("36_tw4tu")
-
-[node name="CombinedCycleSecond" type="Line2D" parent="."]
-width = 2.0
-default_color = Color(0.6, 0, 1, 1)
-script = ExtResource("37_8xnxq")
-
-[node name="Steam" type="Line2D" parent="."]
-width = 2.0
-default_color = Color(0.938905, 0.898262, 1, 1)
-script = ExtResource("39_btllu")
+[node name="Electrolyzersldr" type="HSlider" parent="CanvasLayer/Panel" unique_id=1767061573]
+layout_mode = 0
+offset_left = 910.0
+offset_top = 10.0
+offset_right = 1099.0
+offset_bottom = 26.0
 
 [connection signal="UpdateGraphs" from="mathlib" to="mathlib" method="_on_update_graphs"]
 [connection signal="UpdateGraphs" from="mathlib" to="SolarPower" method="_on_mathlib_update_graphs"]
 [connection signal="UpdateGraphs" from="mathlib" to="WindPower" method="_on_mathlib_update_graphs"]
 [connection signal="UpdateGraphs" from="mathlib" to="Demand" method="_on_mathlib_update_graphs"]
 [connection signal="UpdateGraphs" from="mathlib" to="CombinedCycleSecond" method="_on_mathlib_update_graphs"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/RationSlider" to="Timer" method="_on_ration_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/RationSlider" to="mathlib" method="_on_ration_slider_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/SolarSlider" to="Timer" method="_on_solar_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/SolarSlider" to="mathlib" method="_on_solar_slider_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/WindSlider" to="Timer" method="_on_wind_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/WindSlider" to="mathlib" method="_on_h_slider_2_value_changed"]
-[connection signal="pressed" from="MyCamera2D/Panel/BatteryUpButton" to="mathlib" method="_on_battery_up_button_pressed"]
-[connection signal="pressed" from="MyCamera2D/Panel/BatteryUpButton" to="StoragePotential" method="_on_battery_up_button_pressed"]
-[connection signal="pressed" from="MyCamera2D/Panel/BatteryUpButton" to="Timer" method="_on_battery_up_button_pressed"]
-[connection signal="pressed" from="MyCamera2D/Panel/BatteryDownButton" to="mathlib" method="_on_battery_down_button_pressed"]
-[connection signal="pressed" from="MyCamera2D/Panel/BatteryDownButton" to="StoragePotential" method="_on_battery_down_button_pressed"]
-[connection signal="pressed" from="MyCamera2D/Panel/BatteryDownButton" to="Timer" method="_on_battery_down_button_pressed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/LWRSlider" to="Timer" method="_on_lwr_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/LWRSlider" to="mathlib" method="_on_lwr_slider_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/CCSSlider" to="Timer" method="_on_ccs_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/CCSSlider" to="mathlib" method="_on_ccs_slider_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/SFRSlider" to="Timer" method="_on_sfr_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/SFRSlider" to="mathlib" method="_on_sfr_slider_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/ThermalSteamSlider" to="Timer" method="_on_thermal_steam_slider_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/ThermalSteamSlider" to="mathlib" method="_on_thermal_steam_slider_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/ThermStrSldr" to="Timer" method="_on_therm_str_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/ThermStrSldr" to="mathlib" method="_on_therm_str_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/HydroStorageSldr" to="Timer" method="_on_hydro_storage_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/HydroStorageSldr" to="mathlib" method="_on_battery_wattage_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/SMRSldr" to="Timer" method="_on_smr_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/SMRSldr" to="mathlib" method="_on_smr_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/Season_dschrg_1" to="Timer" method="_on_season_dschrg_1_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/Season_dschrg_1" to="mathlib" method="_on_season_dschrg_1_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/Season_dschrg_2" to="Timer" method="_on_season_dschrg_2_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/Season_dschrg_2" to="mathlib" method="_on_season_dschrg_2_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/Season_dschrg_3" to="Timer" method="_on_season_dschrg_3_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/Season_dschrg_3" to="mathlib" method="_on_season_dschrg_3_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/Season_dschrg_4" to="Timer" method="_on_season_dschrg_4_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/Season_dschrg_4" to="mathlib" method="_on_season_dschrg_4_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/Hydroelectric_sldr" to="Timer" method="_on_hydroelectric_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/Hydroelectric_sldr" to="mathlib" method="_on_hydroelectric_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/CoalSldr" to="Timer" method="_on_coal_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/CoalSldr" to="mathlib" method="_on_coal_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/BiogasSldr" to="Timer" method="_on_biogas_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/BiogasSldr" to="mathlib" method="_on_biogas_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Panel/DistSolarSldr" to="Timer" method="_on_dist_solar_sldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Panel/DistSolarSldr" to="mathlib" method="_on_dist_solar_sldr_value_changed"]
-[connection signal="drag_ended" from="MyCamera2D/Electrolyzersldr" to="Timer" method="_on_electrolyzersldr_drag_ended"]
-[connection signal="value_changed" from="MyCamera2D/Electrolyzersldr" to="mathlib" method="_on_electrolyzersldr_value_changed"]
 [connection signal="timeout" from="Timer" to="mathlib" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Net_Surplus" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Net_Generation" method="_on_timer_timeout"]
@@ -571,3 +539,47 @@ script = ExtResource("39_btllu")
 [connection signal="timeout" from="Timer" to="CoalGeneration" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="CombinedCycleSecond" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Steam" method="_on_timer_timeout"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/RationSlider" to="Timer" method="_on_ration_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/RationSlider" to="mathlib" method="_on_ration_slider_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/SolarSlider" to="Timer" method="_on_solar_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/SolarSlider" to="mathlib" method="_on_solar_slider_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/WindSlider" to="Timer" method="_on_wind_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/WindSlider" to="mathlib" method="_on_h_slider_2_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BatteryUpButton" to="mathlib" method="_on_battery_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BatteryUpButton" to="StoragePotential" method="_on_battery_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BatteryUpButton" to="Timer" method="_on_battery_up_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BatteryDownButton" to="mathlib" method="_on_battery_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BatteryDownButton" to="StoragePotential" method="_on_battery_down_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BatteryDownButton" to="Timer" method="_on_battery_down_button_pressed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/LWRSlider" to="Timer" method="_on_lwr_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/LWRSlider" to="mathlib" method="_on_lwr_slider_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/CCSSlider" to="Timer" method="_on_ccs_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/CCSSlider" to="mathlib" method="_on_ccs_slider_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/SFRSlider" to="Timer" method="_on_sfr_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/SFRSlider" to="mathlib" method="_on_sfr_slider_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/ThermalSteamSlider" to="Timer" method="_on_thermal_steam_slider_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/ThermalSteamSlider" to="mathlib" method="_on_thermal_steam_slider_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/ThermStrSldr" to="Timer" method="_on_therm_str_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/ThermStrSldr" to="mathlib" method="_on_therm_str_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/HydroStorageSldr" to="Timer" method="_on_hydro_storage_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HydroStorageSldr" to="mathlib" method="_on_battery_wattage_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/SMRSldr" to="Timer" method="_on_smr_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/SMRSldr" to="mathlib" method="_on_smr_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/Season_dschrg_1" to="Timer" method="_on_season_dschrg_1_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/Season_dschrg_1" to="mathlib" method="_on_season_dschrg_1_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/Season_dschrg_2" to="Timer" method="_on_season_dschrg_2_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/Season_dschrg_2" to="mathlib" method="_on_season_dschrg_2_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/Season_dschrg_3" to="Timer" method="_on_season_dschrg_3_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/Season_dschrg_3" to="mathlib" method="_on_season_dschrg_3_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/Season_dschrg_4" to="Timer" method="_on_season_dschrg_4_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/Season_dschrg_4" to="mathlib" method="_on_season_dschrg_4_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/Hydroelectric_sldr" to="Timer" method="_on_hydroelectric_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/Hydroelectric_sldr" to="mathlib" method="_on_hydroelectric_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/CoalSldr" to="Timer" method="_on_coal_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/CoalSldr" to="mathlib" method="_on_coal_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/BiogasSldr" to="Timer" method="_on_biogas_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/BiogasSldr" to="mathlib" method="_on_biogas_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/DistSolarSldr" to="Timer" method="_on_dist_solar_sldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/DistSolarSldr" to="mathlib" method="_on_dist_solar_sldr_value_changed"]
+[connection signal="drag_ended" from="CanvasLayer/Panel/Electrolyzersldr" to="Timer" method="_on_electrolyzersldr_drag_ended"]
+[connection signal="value_changed" from="CanvasLayer/Panel/Electrolyzersldr" to="mathlib" method="_on_electrolyzersldr_value_changed"]

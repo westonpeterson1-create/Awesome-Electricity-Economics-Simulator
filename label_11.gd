@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "Advanced Nuclear: (" + str(mathlib.SFRNuclearCapacity * 40) + " GW)"
+	self.text = "Advanced Nuclear: (" + str(mathlib.SFRNuclearCapacity * mathlib.PeakDemand) + " GW)"
 	pass

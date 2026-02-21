@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "Land Use: " + str(mathlib.LandUse()) + " Square Km"
+	self.text = "Land Use: " + str(round(mathlib.LandUse())) + " km^2"
 	pass

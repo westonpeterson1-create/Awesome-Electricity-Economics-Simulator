@@ -15,7 +15,7 @@ func Calculate() -> void:
 	clear_points()
 	var i = 0
 	while (i <= 2184*4):
-		add_point(Vector2(i * 7, 800 - ((mathlib.Steam_Base_Throttle(i)) * 800)))
+		add_point(Vector2(i * 7, 800 - ((mathlib.Steam_Base_Throttle(i) + mathlib.SFRNuclearCapacity) * 800)))
 		i = i + 168/60
 		
 	i = 0

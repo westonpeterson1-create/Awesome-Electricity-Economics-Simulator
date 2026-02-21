@@ -9,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.text = "Gas Turbine Capacity (" + str(mathlib.GetGasTurbineCapacity() * 40) + " GW)"
+	self.text = "Gas Turbine Capacity (" + str(round(mathlib.GetGasTurbineCapacity() * mathlib.PeakDemand)) + " GW)"
 	pass

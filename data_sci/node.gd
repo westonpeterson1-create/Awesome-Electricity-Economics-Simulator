@@ -50,6 +50,8 @@ func _on_button_8_pressed() -> void:
 
 func _on_h_slider_value_changed(value: float) -> void:
 	Global.T_INTEREST = 0.12 * (value / 100)
+	if (Global.T_INTEREST == 0):
+		Global.T_INTEREST = 0.0001
 	pass # Replace with function body.
 
 
