@@ -8,3 +8,5 @@ HSMC_ENERGY_SIM_TOOL.pck
 *.pck
 *.html
 *.translation
+*.zip
+*.exe
