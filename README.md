@@ -1,4 +1,4 @@
-This is the electricity economics simulator. The README in case anyone ever takes and interest in the code, users should be instructed via the tutorial, or manual. Both of these documents are to be in .docx format, put on the git repo for any developers to edit.
+This is the electricity economics simulator. The README in case anyone ever takes an interest in the code, users should be instructed via the tutorial, or manual. Both of these documents are to be in .docx format, put on the git repo for any developers to edit.
 
 I am open minded so feel free to try improving or suggesting whatever if you want to help, just stay in line with the projects goal of being 
 educational and mostly accurate. Even things like helping with the tutorial, contributing the .csv files for your home state/country, or replacing copy pasted values with a named variable are
