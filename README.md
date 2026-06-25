@@ -1,5 +1,7 @@
 This is the electricity economics simulator. It is a primitive hourly modeler which takes real world data for wind, solar, and demand and scales them according to how much generation is specified by the user. This allows it to produce somewhat interesting results with respect to cost and CO2 emissions when evaluating various scenarios, the usefulness of these numbers is somewhere between reddit comment speculation and actual modelling done by people who know what they are doing.
 
+Keep in mind: thermal storage is broken. It used to work and then I tried to improve it and now its broken forever :(
+
 The README exists in case anyone ever takes an interest in the code, users should be instructed via the tutorial, or manual. Both of these documents are to be in .docx format, put on the git repo for any developers to edit.
 
 I am open minded so feel free to try improving or suggesting whatever if you want to help, just stay in line with the projects goal of being 
